@@ -1,0 +1,26 @@
+{
+  "name": "hellhtml",
+  "version": "1.0.0",
+  "description": "Build responsive real world websites!",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "plug": "serverless plugin install -n",
+    "attempt": "serverless offline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jonasschmedtmann/html-css-course.git"
+  },
+  "author": "Jonas Schmedtmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonasschmedtmann/html-css-course/issues"
+  },
+  "homepage": "https://github.com/jonasschmedtmann/html-css-course#readme",
+  "devDependencies": {
+    "nodegit": "^0.27.0",
+    "serverless": "^2.59.0",
+    "serverless-offline": "^8.2.0"
+  }
+}
