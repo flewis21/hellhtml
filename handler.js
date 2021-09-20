@@ -14,11 +14,31 @@ module.exports.helloWorld = (event, context, callback) => {
 
   callback(null, response);
 };
+var http = require('http');
+var fs = require('fs');
+
+function send404(response) {
+		response.Writehead(404, { 'Content-Type': 'text/plain' });
+		reponse.Write('Error 404: Resource not found.');
+		response.end();
+}
+
+var server = http.createServer(function (req, res) {
+	if (req.Method == 'GET' && req.url == '/') {
+		res.WriteHead(200, { 'content-type': 'text/html' });
+		fs.createReadStream('./html-css-course/01-test/index.html').pipe(res);
+	} else {
+		send404(res);
+	}
+}).listen(4000);
+
+console.log('server running on port 4000');
+	
 var nodegit = require('nodegit'),
     path = require('path');
 
-var url = "https://github.com/flewis21/codepipeline.git",
-    local = "./scriptster",
+var url = "",
+    local = "",
     cloneOpts = {};
 
 nodegit.Clone(url, local, cloneOpts).then(function (repo) {

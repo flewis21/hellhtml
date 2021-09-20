@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "plug": "serverless plugin install -n",
-    "attempt": "serverless offline"
+    "attempt": "serverless offline",
+    "npm": "npm"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/jonasschmedtmann/html-css-course#readme",
   "devDependencies": {
     "nodegit": "^0.27.0",
+    "npm": "^7.24.0",
     "serverless": "^2.59.0",
     "serverless-offline": "^8.2.0"
   }
