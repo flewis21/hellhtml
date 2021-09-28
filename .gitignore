@@ -1,3 +1,4 @@
 node_modules/
 *lock.json
 _html-css-course/
+*env.json

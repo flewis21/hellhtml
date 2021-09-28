@@ -13,7 +13,12 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  region: us-east-1
+  stage: dev
+  environment: ${file(${opt:stage,self:provider.stage}-hellhtml_env.json)}
   lambdaHashingVersion: 20201221
+  variablesResolutionMode: 20210326
+  configValidationMode: error
 
 # The `functions` block defines what code to deploy
 functions:
@@ -28,8 +33,12 @@ functions:
 
 plugins:
   - serverless-offline
+  - serverless-domain-manager
 custom:
   serverless-offline:
     httpPort: 4000
     lambdaPort: 4002
-    noPrependStageInUrl: true
+    noPrependStageInUrl: fales
+  customDomain:
+    domainName: dev-atlbudgetstudio.studio4510.com
+    basepath: dev_hellhtml
