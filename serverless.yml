@@ -13,12 +13,16 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  profile: ${self:custom.profiles.${sls:stage}}
   region: us-east-1
-  stage: dev
+  stage: ${opt:stage, 'dev'}
   environment: ${file(${opt:stage,self:provider.stage}-hellhtml_env.json)}
   lambdaHashingVersion: 20201221
   variablesResolutionMode: 20210326
   configValidationMode: error
+  CheckGitBranchBeforeDeploy:
+    staging: master
+    production: prod
 
 # The `functions` block defines what code to deploy
 functions:
@@ -34,11 +38,22 @@ functions:
 plugins:
   - serverless-offline
   - serverless-domain-manager
+  - serverless-stage-manager
+  - check-git-branch-before-deploy
+  - serverless-export-env
 custom:
+  profiles:
+    dev: aws-package-user
+    staging: default
+    prod: default
+  stages:
+    - dev
+    - staging
+    - prod
   serverless-offline:
     httpPort: 4000
     lambdaPort: 4002
-    noPrependStageInUrl: fales
+    noPrependStageInUrl: false
   customDomain:
     domainName: dev-atlbudgetstudio.studio4510.com
-    basepath: dev_hellhtml
+    basepath: dev_hellhtmlAccess

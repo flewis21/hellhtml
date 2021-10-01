@@ -1,5 +1,11 @@
 'use strict'
+
+
+ 
 module.exports.helloWorld = async (event, context, callback) => {
+const path = require('path')
+const fs = require('fs')
+
   // Extract the request from the CloudFront event that is sent to Lambda@Edge
   // const request = event.Records[0].cf.request
 
@@ -22,7 +28,7 @@ module.exports.helloWorld = async (event, context, callback) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'Hello from the {}!'.format(os.environ.get('SERVICE_NAME')),
+      message: 'Hello from the {}!',
       input: event
     },
     null,

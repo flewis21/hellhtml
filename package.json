@@ -8,7 +8,7 @@
     "plug": "serverless plugin install -n",
     "tempt": "serverless offline",
     "get": "npm install -g",
-    "start": "node app.local",
+    "start": "node bin/app.local",
     "lint": "standard",
     "deploy": "serverless"
   },
@@ -25,11 +25,19 @@
   "devDependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "html-webpack-plugin": "^5.3.2",
     "nodegit": "^0.27.0",
     "npm": "^7.24.0",
     "serverless": "^2.60.0",
     "serverless-domain-manager": "^5.1.5",
+    "serverless-export-env": "^2.0.0",
     "serverless-offline": "^8.2.0",
-    "standard": "^16.0.3"
+    "serverless-stage-manager": "^1.0.5",
+    "standard": "^16.0.3",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "@types/ejs": "^3.1.0"
   }
 }
