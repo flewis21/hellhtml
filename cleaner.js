@@ -1,34 +1,32 @@
-var nodegit = require("nodegit");
-var path = require("path");
-var dir = require('./dev-hellhtml_env.json')
-
+const nodegit = require('nodegit')
+const path = require('path')
+// const dir = require('./dev-hellhtml_env.json')
 
 // var repoDir = "dir.repoDir";
 
 // This code shows working directory changes similar to git status
 
 nodegit.Repository.open(path.resolve(__dirname))
-  .then(function(repo) {
-    repo.getStatus().then(function(statuses) {
-      function statusToText(status) {
-        var words = [];
-        if (status.isNew()) { words.push("NEW"); }
-        if (status.isModified()) { words.push("MODIFIED"); }
-        if (status.isTypechange()) { words.push("TYPECHANGE"); }
-        if (status.isRenamed()) { words.push("RENAMED"); }
-        if (status.isIgnored()) { words.push("IGNORED"); }
+  .then(function (repo) {
+    repo.getStatus().then(function (statuses) {
+      function statusToText (status) {
+        const words = []
+        if (status.isNew()) { words.push('NEW') }
+        if (status.isModified()) { words.push('MODIFIED') }
+        if (status.isTypechange()) { words.push('TYPECHANGE') }
+        if (status.isRenamed()) { words.push('RENAMED') }
+        if (status.isIgnored()) { words.push('IGNORED') }
 
-        return words.join(" ");
+        return words.join(' ')
       }
 
-      statuses.forEach(function(file) {
-        console.log(file.path() + " " + statusToText(file));
-      });
-    });
-});
+      statuses.forEach(function (file) {
+        console.log(file.path() + ' ' + statusToText(file))
+      })
+    })
+  })
 
-
-var repository;
+// let repository
 
 // Open a repository that needs to be fetched and fast-forwarded
 // nodegit.Repository.open(path.resolve(__dirname))
@@ -39,15 +37,15 @@ var repository;
 //      callbacks: {
 //        credentials: function(url, userName) {
 //          return nodegit.Cred.sshKeyFromAgent(username(dir.gitUsername));
-//        }, 
+//        },
 //        certificateCheck: function() {
 //          return 0;
 //        }
 //      }
 //    });
 //  })
-  // Now that we're finished fetching, go ahead and merge our local branch
-  // with the new one
+// Now that we're finished fetching, go ahead and merge our local branch
+// with the new one
 //  .then(function() {
 //    return repository.mergeBranches("master", "origin/master");
 //  })

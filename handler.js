@@ -1,10 +1,8 @@
 'use strict'
 
-
- 
 module.exports.helloWorld = async (event, context, callback) => {
-const path = require('path')
-const fs = require('fs')
+//  const path = require('path')
+//  const fs = require('fs')
 
   // Extract the request from the CloudFront event that is sent to Lambda@Edge
   // const request = event.Records[0].cf.request

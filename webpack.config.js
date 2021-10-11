@@ -1,17 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+// const webpack = require('webpack')
 const globals = require('./globals.js')
+const path = require('path')
 
 module.exports = {
-  entry: __dirname + '/pages/index.ejs',
+  entry: path.join('/pages/index.ejs'),
   output: {
-    path: __dirname + '/views',
+    path: path.join('/views'),
     filename: 'index_bundle.js'
   },
-};	// ... previous config, entry, output...
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'views/pages/index.ejs',
-      templateParameters: globals,
-    })
-  ]
-};
+  plugins: [new HtmlWebpackPlugin({ template: 'views/pages/index.ejs', templateParameters: globals })]
+}

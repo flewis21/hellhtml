@@ -1,4 +1,4 @@
-const cleaner = require('../cleaner')
+// const cleaner = require('../cleaner')
 const app = require('../server')
 const port = 4000
 app.listen(port)
